@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  RobSIC Beamer Template                     %%
+%%                                                             %%
+%% This is the main theme file for the RobSIC Beamer Template. %%
+%% Refer to the robsic-example.tex file to see hot to use this %%
+%% theme.                                                      %%
+%%                                                             %%
+%% Authors: Wendell F. S. Diniz (wendelldiniz@unifei.edu.br)   %%
+%%                                                             %%
+%% Created: September, 2022                                    %%
+%% Licensing: MIT License                                      %%
+%%                                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOptionBeamer{option}{\PassOptionsToPackage{option=#1}{beamerouterthemerobsic}}
+\DeclareOptionBeamer{navigation}{\PassOptionsToPackage{navigation=#1}{beamerouterthemerobsic}}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+
+% Settings
+\useinnertheme{robsic}
+\useoutertheme{robsic}
+\usecolortheme{robsic}
+\usefonttheme{robsic}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\mode<all>
