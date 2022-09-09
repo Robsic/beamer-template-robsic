@@ -4,8 +4,8 @@
 %% This is an example presentation showing how to use the    %%
 %% RobSIC custom template. To create your own, just copy     %%
 %% this file to your project and add your own slides,        %%
-%% using the ones here for guidance. In the end, just delete %%
-%% the example slides and you're done.                       %%
+%% using the ones here for guidance. When finished, just     %%
+%% delete the example slides and you're done.                %%
 %%                                                           %%
 %% Authors: Wendell F. S. Diniz (wendelldiniz@unifei.edu.br) %%
 %%                                                           %%
@@ -14,12 +14,18 @@
 %%                                                           %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% The beamer class
-\documentclass{beamer}
+% The beamer document class
+%
+% By default, we use modern screen size with 16:9 aspect ratio.
+% You can change the option if your presentation media requires it.
+\documentclass[12pt, xcolor=table, aspectratio=169]{beamer}
 
-% The RobSIC beamer theme. Refer to the
-% documentation to see the available options.
-\usetheme[navigation=false]{robsic}
+% The RobSIC beamer theme.
+% Available options
+% navigation=false (disables the navigation bar)
+% option=full (full theme, with section titles)
+% option=simple (simplified theme)
+\usetheme[navigation=false, option=full]{robsic}
 
 % Font configuration packages
 \usepackage[utf8]{inputenc}
@@ -27,13 +33,12 @@
 
 % Optional packages
 
-
 %% PREAMBLE %%
 
-\title{RobSIC Presentation Template}
-\date[SIGLA 22]{Conference Title}
-\author[Author]{Author Full Name \texttt{author@unifei.edu.br}}
-
+\title{Modelo de Apresentação do RobSIC}
+\author[Author]{Nome Completo}
+\institute{RobSIC - Robótica, Sistemas Inteligentes e Complexos}
+\date[SIGLA 22]{Título da conferência}
 %% CUSTOM COMMANDS %%
 
 %% THE DOCUMENT %%
@@ -41,15 +46,23 @@
 \begin{document}
 
 \begin{frame}
-\titlepage
+  \titlepage
 \end{frame}
 
+\mode<beamer>{
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+}
 
+\section[Intro]{Introduction}
 \begin{frame}
 \frametitle{There Is No Largest Prime Number}
 \framesubtitle{The proof uses \textit{reductio ad absurdum}.}
 \begin{theorem}
-There is no largest prime number. \end{theorem}
+There is no largest prime number.
+\end{theorem}
 \begin{enumerate}
 \item<1-| alert@1> Suppose $p$ were the largest prime number.
 \item<2-> Let $q$ be the product of the first $p$ numbers.
@@ -58,5 +71,17 @@ There is no largest prime number. \end{theorem}
 number not in the first $p$ numbers.
 \end{enumerate}
 \end{frame}
+
+\section[Math]{Inserindo Equações}
+
+\begin{frame}
+ \frametitle{Inserindo Equações}
+ \begin{block}{Equação de Pitágoras}
+   \begin{equation*}
+     a^2 = b^2 + c^2
+   \end{equation*}
+ \end{block}
+\end{frame}
+
 
 \end{document}

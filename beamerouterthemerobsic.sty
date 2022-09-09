@@ -1,3 +1,5 @@
+\def\beamer@full{full}
+\def\beamer@simple{simple}
 \def\beamer@false{false}
 
 \DeclareOptionBeamer{navigation}{\def\beamer@theme@navigation{#1}}
@@ -9,19 +11,84 @@
 
 \mode<presentation>
 
+% Passing the option
 \ifx\beamer@theme@navigation\beamer@false
   \setbeamertemplate{navigation symbols}{}
 \fi
 
+%\pgfdeclareimage[height=0.075\paperheight]{robsic}{robsic}
+% Headline
+
+\ifx\beamer@theme@option\beamer@simple
+\setbeamertemplate{headline}{%
+  \ifnum\theframenumber<2%
+  \else%
+    \vskip.5cm
+    {\color{secondary}{\rule[0.01\paperheight]{1.00\paperwidth}{0.5pt}}}
+  \fi
+}
+\fi
+
+\ifx\beamer@theme@option\beamer@full
+\setbeamertemplate{headline}{%
+  \ifnum\theframenumber<2%
+    %
+  \else%
+    \leavevmode%
+    {\color{primary}{\rule{1\paperwidth}{0.085\paperheight}}}%
+    \vskip-0.075\paperheight
+    \hfill 
+    \hskip4pt \strut
+    \vskip-20pt
+    \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \ifx\insertsubsection\@empty%
+        \strut\par%
+    \else
+        \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \fi%
+  \fi
+}
+\fi
+
+% Footline
+\ifx\beamer@theme@option\beamer@simple
+\setbeamertemplate{footline}{
+    \ifnum \theframenumber=1
+        % This is the title frame, do nothing
+    \else
+        % These would be all the following frames
+        \leavevmode%
+        {\color{secondary}{\rule[0.01\paperheight]{1.00\paperwidth}{0.5pt}}} \strut
+        \hskip0.1\paperwidth%
+        \makebox[0.8\paperwidth][c]{\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot}\insertshorttitle}%
+        \makebox[0.075\paperwidth][r]{\usebeamerfont{page number in head/foot}\usebeamercolor[fg]{page number in head/foot}\insertframenumber}%
+        \hskip0.025\paperwidth%
+        \vskip4pt
+    \fi
+}
+\fi
+
 % Frame title
+\ifx\beamer@theme@option\beamer@simple
+\defbeamertemplate*{frametitle}{robsic}[1][]
+{
+  \vskip.5cm
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle\par%
+    \usebeamerfont{framesubtitle}\usebeamercolor[fg]{author}\insertframesubtitle\par%
+  \end{beamercolorbox}
+}
+\fi
+
+\ifx\beamer@theme@option\beamer@full
 \defbeamertemplate*{frametitle}{robsic}[1][]
 {
 \vskip1cm%
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
   \begin{tikzpicture}
   \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
-  \fill[orange] (0,0) rectangle(2.95,1.2);
-  \fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
+  \fill[secondary] (0,0) rectangle(2.95,1.2);
+  \fill[primary] (3.05,0) rectangle(\the\paperwidth,1.2);
    \ifx\insertframesubtitle\@empty%
       {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};}
       \else%
@@ -31,5 +98,6 @@
   \end{tikzpicture}
   \end{beamercolorbox}
 }
+\fi
 
 \mode<all>

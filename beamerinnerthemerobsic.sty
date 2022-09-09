@@ -1,33 +1,35 @@
 \mode<presentation>
 
 \setbeamertemplate{background}{
-  \begin{tikzpicture}
-  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \fill[color=brown] (0,2) rectangle (\the\paperwidth,\the\paperheight);
-  \fill[color=orange] (0,0) rectangle(2.95,1.9);
-  \fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
-  \ifnum\thepage>1\relax%
-   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-   \fi
-  \end{tikzpicture}
+  \ifnum\theframenumber<2\relax%
+    \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \fill[color=primary] (0,2.125) rectangle (0.2\paperwidth,\the\paperheight);
+      \fill[color=accent] (0,2.15) rectangle(\the\paperwidth,2);
+      \fill[color=secondary] (0,0) rectangle(0.2\paperwidth,2);
+    \end{tikzpicture}
+  \fi 
 }
 
 % Title page
 \defbeamertemplate*{title page}{robsic}[1][]
 {
-   \vskip6cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
-      \usebeamerfont{title}\inserttitle\par%
-    \end{beamercolorbox}%
-    \vskip0.75cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
-      \usebeamerfont{author}\insertauthor%
-    \end{beamercolorbox}
-     \vskip0.2cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
-      \usebeamerfont{author}\insertdate%
-    \end{beamercolorbox}
-  \vfill
+  \vskip1cm
+%   \begin{beamercolorbox}[wd=15cm,center,sep=8pt,#1]{title page header}
+%    \usebeamerfont{main title}\inserttitle\par%
+%   \end{beamercolorbox}%
+  \begin{tcolorbox}[left skip=3cm, height=3cm, halign=center, valign=center, coltext=accent, opacityframe=0, opacityback=0]
+    \usebeamerfont{main title}\inserttitle\par%
+  \end{tcolorbox}%
+  \begin{tcolorbox}[left skip=3cm, height=2.5cm, halign=center, valign=center, coltext=primary, opacityframe=0, opacityback=0]
+    \usebeamerfont{author}\insertauthor\par%
+  \end{tcolorbox}%
+  %\vskip.5cm
+  \begin{tcolorbox}[left skip=3cm, height=2cm, halign=flush center, valign=center, coltext=secondary, opacityframe=0, opacityback=0]
+    \usebeamerfont{date}\insertdate\par%
+    \vskip4pt
+    \usebeamerfont{institute}\insertinstitute
+  \end{tcolorbox}%
 }
 
 \mode
