@@ -6,8 +6,8 @@
 \DeclareOptionBeamer{option}{\def\beamer@theme@option{#1}}
 \ProcessOptionsBeamer
 
-%\pgfdeclareimage[height=0.05\paperheight]{cnrs}{cnrs_small}
-%\pgfdeclareimage[height=0.05\paperheight]{utc}{UTC_Recherche}
+\pgfdeclareimage[height=0.05\paperheight]{unifei_hor}{images/assin_hor_RGB_pos}
+\pgfdeclareimage[height=0.05\paperheight]{robsic}{images/logo_RobSIC}
 
 \mode<presentation>
 
@@ -20,13 +20,23 @@
 % Headline
 
 \ifx\beamer@theme@option\beamer@simple
-\setbeamertemplate{headline}{%
+\setbeamertemplate{headline}
+{%
   \ifnum\theframenumber<2%
+    %
   \else%
-    \vskip.5cm
-    {\color{secondary}{\rule[0.01\paperheight]{1.00\paperwidth}{0.5pt}}}
+    \leavevmode%
+    \vskip4pt
+    \hskip4pt
+    \hfill
+    {\color{primary}{\pgfuseimage{unifei_hor}}}
+    \hskip4pt
+    \pgfuseimage{robsic}
+    \hskip4pt \strut
+    \vskip2pt
   \fi
 }
+
 \fi
 
 \ifx\beamer@theme@option\beamer@full

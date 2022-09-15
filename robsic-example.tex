@@ -25,20 +25,21 @@
 % navigation=false (disables the navigation bar)
 % option=full (full theme, with section titles)
 % option=simple (simplified theme)
-\usetheme[navigation=false, option=full]{robsic}
+\usetheme[navigation=false, option=simple]{robsic}
 
 % Font configuration packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[portuges]{babel}
 
 % Optional packages
 
 %% PREAMBLE %%
 
 \title{Modelo de Apresentação do RobSIC}
-\author[Author]{Nome Completo}
-\institute{RobSIC - Robótica, Sistemas Inteligentes e Complexos}
-\date[SIGLA 22]{Título da conferência}
+\author[Autor]{Nome Completo}
+\institute[RobSIC]{RobSIC - Robótica, Sistemas Inteligentes e Complexos}
+\date[SIGLA 22]{Título da conferência - \today}% Mude a data de acordo com sua conveniência
 %% CUSTOM COMMANDS %%
 
 %% THE DOCUMENT %%
@@ -51,12 +52,12 @@
 
 \mode<beamer>{
 \begin{frame}
-  \frametitle{Outline}
+  \frametitle{Sumário}
   \tableofcontents
 \end{frame}
 }
 
-\section[Intro]{Introduction}
+\section[Intro]{Introdução}
 \begin{frame}
 \frametitle{There Is No Largest Prime Number}
 \framesubtitle{The proof uses \textit{reductio ad absurdum}.}

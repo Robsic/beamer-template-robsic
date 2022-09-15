@@ -3,10 +3,14 @@
 \setbeamertemplate{background}{
   \ifnum\theframenumber<2\relax%
     \begin{tikzpicture}
+      \node[opacity=.3] (logo) at (14,5.5)
+      {\includegraphics[height=.7\paperheight]{images/logo_RobSIC_notext}};
       \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
       \fill[color=primary] (0,2.125) rectangle (0.2\paperwidth,\the\paperheight);
       \fill[color=accent] (0,2.15) rectangle(\the\paperwidth,2);
       \fill[color=secondary] (0,0) rectangle(0.2\paperwidth,2);
+      \node (logoUnifei) at (1.6,1)
+      {\includegraphics[width=.07\paperwidth]{images/simbolo_RGB}};
     \end{tikzpicture}
   \fi 
 }
