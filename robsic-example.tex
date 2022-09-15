@@ -25,14 +25,18 @@
 % navigation=false (disables the navigation bar)
 % option=full (full theme, with section titles)
 % option=simple (simplified theme)
-\usetheme[navigation=false, option=simple]{robsic}
+\usetheme[navigation=false, option=full]{robsic}
 
-% Font configuration packages
+% Packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[portuges]{babel}
+\usepackage[portuges]{babel} % Pacote de idioma
+\usepackage{nameref}
 
-% Optional packages
+% Custom commands
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
 
 %% PREAMBLE %%
 
@@ -40,6 +44,7 @@
 \author[Autor]{Nome Completo}
 \institute[RobSIC]{RobSIC - Robótica, Sistemas Inteligentes e Complexos}
 \date[SIGLA 22]{Título da conferência - \today}% Mude a data de acordo com sua conveniência
+
 %% CUSTOM COMMANDS %%
 
 %% THE DOCUMENT %%
@@ -50,6 +55,8 @@
   \titlepage
 \end{frame}
 
+\section[Sumário]{Sumário}
+
 \mode<beamer>{
 \begin{frame}
   \frametitle{Sumário}
@@ -57,7 +64,8 @@
 \end{frame}
 }
 
-\section[Intro]{Introdução}
+\section[Introdução]{Introdução}
+\subsection[Apresentação]{Apresentação}
 \begin{frame}
 \frametitle{There Is No Largest Prime Number}
 \framesubtitle{The proof uses \textit{reductio ad absurdum}.}
@@ -73,7 +81,9 @@ number not in the first $p$ numbers.
 \end{enumerate}
 \end{frame}
 
-\section[Math]{Inserindo Equações}
+\section[Equações]{Inserindo Equações}
+
+\subsection[Uso Geral]{Uso Geral}
 
 \begin{frame}
  \frametitle{Inserindo Equações}
@@ -82,6 +92,12 @@ number not in the first $p$ numbers.
      a^2 = b^2 + c^2
    \end{equation*}
  \end{block}
+\end{frame}
+
+\subsection[Detalhes]{Detalhes}
+
+\begin{frame}
+  \frametitle{\currentname}
 \end{frame}
 
 

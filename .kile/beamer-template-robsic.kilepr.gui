@@ -2,7 +2,25 @@
 kile_livePreviewEnabled=true
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=beamerinnerthemerobsic.sty
+lastDocument=beamerouterthemerobsic.sty
+
+[document-settings,item:beamercolorthemerobsic.sty]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
+
+[document-settings,item:beamerfontthemerobsic.sty]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
 
 [document-settings,item:beamerinnerthemerobsic.sty]
 Bookmarks=
@@ -36,12 +54,12 @@ open=false
 order=-1
 
 [item:beamercolorthemerobsic.sty]
-open=false
-order=-1
+open=true
+order=3
 
 [item:beamerfontthemerobsic.sty]
-open=false
-order=-1
+open=true
+order=4
 
 [item:beamerinnerthemerobsic.sty]
 open=true
@@ -59,25 +77,41 @@ order=-1
 open=true
 order=0
 
+[view-settings,view=0,item:beamercolorthemerobsic.sty]
+CursorColumn=19
+CursorLine=19
+Dynamic Word Wrap=false
+JumpList=
+TextFolding=[]
+ViMarks=
+
+[view-settings,view=0,item:beamerfontthemerobsic.sty]
+CursorColumn=19
+CursorLine=7
+Dynamic Word Wrap=false
+JumpList=
+TextFolding=[]
+ViMarks=
+
 [view-settings,view=0,item:beamerinnerthemerobsic.sty]
-CursorColumn=66
-CursorLine=5
+CursorColumn=97
+CursorLine=31
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:beamerouterthemerobsic.sty]
-CursorColumn=38
-CursorLine=71
+CursorColumn=47
+CursorLine=10
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:robsic-example.tex]
-CursorColumn=0
-CursorLine=49
+CursorColumn=32
+CursorLine=85
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
