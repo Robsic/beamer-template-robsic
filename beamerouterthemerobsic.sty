@@ -6,9 +6,15 @@
 \DeclareOptionBeamer{option}{\def\beamer@theme@option{#1}}
 \ProcessOptionsBeamer
 
-\pgfdeclareimage[height=0.05\paperheight]{unifei_hor}{images/assin_hor_RGB_pos}
+\pgfdeclareimage[height=0.05\paperheight]{unifei-hor-sm}{images/assin_hor_RGB_pos}
+\pgfdeclareimage[height=0.05\paperheight]{unifei-hor-neg-sm}{images/assin_hor_RGB_neg}
 \pgfdeclareimage[height=0.05\paperheight]{robsic-small}{images/logo_RobSIC}
-\pgfdeclareimage[height=0.1\paperheight]{robsic}{images/logo_RobSIC}
+\pgfdeclareimage[height=0.05\paperheight]{robsic-neg-small}{images/logo_RobSIC}
+
+\pgfdeclareimage[height=0.07\paperheight]{unifei-hor}{images/assin_hor_RGB_pos}
+\pgfdeclareimage[height=0.07\paperheight]{unifei-hor-neg}{images/assin_hor_RGB_neg}
+\pgfdeclareimage[height=0.07\paperheight]{robsic}{images/logo_RobSIC}
+\pgfdeclareimage[height=0.07\paperheight]{robsic-neg}{images/logo_RobSIC_neg}
 
 \mode<presentation>
 
@@ -17,104 +23,144 @@
   \setbeamertemplate{navigation symbols}{}
 \fi
 
-% Headline
+% Definitions for the simple theme
 
 \ifx\beamer@theme@option\beamer@simple
-\setbeamertemplate{headline}
-{%
-  \ifnum\theframenumber<2%
-    %
-  \else%
-    \leavevmode%
-%     \vskip2pt
-    \hskip2pt
-    \makebox[0.075\paperwidth][l]{\usebeamerfont{title in head/foot}\usebeamercolor[fg]{page number in head/foot}\insertshortdate}%
-    \hskip2pt
-    \hfill
-    {\color{primary}{\pgfuseimage{unifei_hor}}}
-    \hskip4pt
-    \pgfuseimage{robsic}
-    \hskip4pt \strut
-    \vskip2pt
-  \fi
-}
 
-\fi
-
-\ifx\beamer@theme@option\beamer@full
-\setbeamertemplate{headline}{%
-  \ifnum\theframenumber<2%
-    %
-  \else%
-    \leavevmode%
-    {\color{primary}{\rule{1\paperwidth}{0.085\paperheight}}}%
-    \vskip-0.075\paperheight
-    \hfill 
-    \pgfuseimage{robsic}
-    \hskip4pt \strut
-    \vskip-10pt
-    \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
-    \ifx\insertsubsection\@empty%
-        \strut\par%
-    \else
-      {
-        \usebeamerfont{title in head/foot}
-        \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
-      }
-    \fi%
-  \fi
-}
-\fi
-
-% Footline
-
-\ifx\beamer@theme@option\beamer@simple
-\setbeamertemplate{footline}{
-    \ifnum \theframenumber=1
-        % This is the title frame, do nothing
-    \else
-        % These would be all the following frames
-        \leavevmode%
-        {\color{secondary}{\rule[0.01\paperheight]{1.00\paperwidth}{0.5pt}}} \strut
-        \hskip0.1\paperwidth%
-        \makebox[0.8\paperwidth][c]{\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot}\insertshorttitle}%
-        \makebox[0.075\paperwidth][r]{\usebeamerfont{page number in head/foot}\usebeamercolor[fg]{page number in head/foot}\insertframenumber}%
-        \hskip0.025\paperwidth%
-        \vskip4pt
+  % Headline
+  \setbeamertemplate{headline}
+  {%
+    \ifnum\theframenumber<2%
+      %
+    \else%
+      \leavevmode%
+      \vskip4pt
+      \hskip2pt
+      \makebox[0.075\paperwidth][l]{\usebeamerfont{title in head/foot}\usebeamercolor[fg]{page number in head/foot}\insertshortdate}%
+      \hskip2pt
+      \hfill
+      {\color{primary}{\pgfuseimage{unifei-hor}}}
+      \hskip4pt
+      \pgfuseimage{robsic}
+      \hskip4pt \strut
+      \vskip2pt
+      {\color{secondary}{\rule[0.01\paperheight]{1.00\paperwidth}{0.5pt}}} \strut
     \fi
-}
-\fi
+  }
 
-% Frame title
-\ifx\beamer@theme@option\beamer@simple
-\defbeamertemplate*{frametitle}{robsic}[1][]
-{
-  \vskip.5cm
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
-    \usebeamerfont{frametitle}\insertframetitle\par%
-    \usebeamerfont{framesubtitle}\usebeamercolor[fg]{author}\insertframesubtitle\par%
-  \end{beamercolorbox}
-}
-\fi
+  % Footline
+  \setbeamertemplate{footline}{
+      \ifnum \theframenumber=1
+          % This is the title frame, do nothing
+      \else
+          % These would be all the following frames
+          \leavevmode%
+          {\color{secondary}{\rule[0.01\paperheight]{1.00\paperwidth}{0.5pt}}} \strut
+          \hskip0.1\paperwidth%
+          \makebox[0.8\paperwidth][c]{
+            \usebeamerfont{title in head/foot}
+            \usebeamercolor[fg]{title in head/foot}
+            \insertshorttitle
+          }%
+          \makebox[0.075\paperwidth][r]{
+            \usebeamerfont{page number in head/foot}
+            \usebeamercolor[fg]{page number in head/foot}
+            \insertframenumber
+          }%
+          \hskip0.025\paperwidth%
+          \vskip4pt
+      \fi
+  }
+  
+  % Frametitle
+  \defbeamertemplate*{frametitle}{robsic}[1][] {%
+    \vskip.75cm
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
+      \usebeamerfont{frametitle}\hskip.5cm\insertframetitle\par%
+      \usebeamerfont{framesubtitle}\usebeamercolor[fg]{author}\hskip.5cm\insertframesubtitle\par%
+    \end{beamercolorbox}
+  }
+\fi % simple
+
+% Definitions for the full theme
 
 \ifx\beamer@theme@option\beamer@full
-\defbeamertemplate*{frametitle}{robsic}[1][]
-{
-\vskip1cm%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
-  \begin{tikzpicture}
-  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
-  \fill[secondary] (0,0) rectangle(2.95,1.2);
-  \fill[primary] (3.05,0) rectangle(\the\paperwidth,1.2);
-   \ifx\insertframesubtitle\@empty%
-      {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};}
+
+  % Headline
+  \setbeamertemplate{headline}{%
+    \ifnum\theframenumber<2%
+      %
+    \else%
+      \leavevmode%
+      {\color{primary}{\rule{.77\paperwidth}{0.085\paperheight}}}%
+      \vskip-0.075\paperheight
+      \hfill
+      \pgfuseimage{unifei-hor}
+      \hskip.25cm
+      \pgfuseimage{robsic}
+      \hskip4pt \strut
+      \vskip-18pt
+      \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+      \ifx\insertsubsection\@empty%
+          \strut\par%
+      \else
+        {
+          \usebeamerfont{title in head/foot}
+          \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+        }
+      \fi%
+    \fi
+  }
+
+  \setbeamertemplate{footline}{%
+    \ifnum\theframenumber=1
+    % Do nothing, title page
+    \else
+    \leavevmode%
+      {\color{primary}{\rule{0.93\paperwidth}{0.07\paperheight}}}%
+      \vskip-0.045\paperheight%-6.25ex
+      \hskip8pt%
+      \makebox[0.67\paperwidth][l]{
+        \usebeamerfont{title in head/foot}
+        \usebeamercolor[bg]{title in head/foot}
+        \insertshorttitle
+        \;-\;
+        \insertauthor
+        \;-\;
+        \insertdate
+      }       
+      \makebox[0.125\paperwidth][l]{
+        \raisebox{-17.5pt}[0pt]{}
+%         \raisebox{-5.5pt}[0pt]{}
+%         \raisebox{-6.2pt}[0pt]{}
+      }
+%       \makebox[0.125\paperwidth][c]{\raisebox{-17.5pt}[0pt]{\usebeamerfont{title in head/foot}\insertdate}}
+      \makebox[0.15\paperwidth][r]{
+        \usebeamerfont{page number in head/foot}
+        \usebeamercolor[fg]{page number in head/foot}
+        \insertframenumber
+      }%
+      \vskip-10pt
+    \fi
+  }
+
+  \defbeamertemplate*{frametitle}{robsic}[1][]
+  {
+  \vskip1cm%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
+    \begin{tikzpicture}
+      \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+      \fill[secondary] (0,.2) rectangle(2.95,1.4);
+      \fill[primary] (3.05,.2) rectangle(\the\paperwidth,1.4);
+      \ifx\insertframesubtitle\@empty%
+        {\node[anchor=west, white, font=\large] at (3.2,0.81){\insertframetitle};}
       \else%
-      {\node[anchor= west, white,font=\large] at (3.2,0.81){\insertframetitle};%
-       \node[anchor= west, white,font=\small] at (3.2,0.41){\insertframesubtitle};}%
+        {\node[anchor= west, white, font=\large] at (3.2,.9){\insertframetitle};%
+         \node[anchor= west, white, font=\small] at (3.2,0.5){\insertframesubtitle};}%
       \fi
-  \end{tikzpicture}
-  \end{beamercolorbox}
-}
-\fi
+    \end{tikzpicture}
+    \end{beamercolorbox}
+  }
+\fi % full
 
 \mode<all>
