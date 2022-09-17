@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=true
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=robsic-example.tex
+lastDocument=beamerthemerobsic.sty
 
 [document-settings,item:beamercolorthemerobsic.sty]
 Bookmarks=
@@ -67,20 +67,20 @@ open=false
 order=3
 
 [item:beamerfontthemerobsic.sty]
-open=false
-order=4
-
-[item:beamerinnerthemerobsic.sty]
-open=false
+open=true
 order=1
 
+[item:beamerinnerthemerobsic.sty]
+open=true
+order=3
+
 [item:beamerouterthemerobsic.sty]
-open=false
+open=true
 order=2
 
 [item:beamerthemerobsic.sty]
-open=false
-order=-1
+open=true
+order=4
 
 [item:robsic-example.tex]
 open=true
@@ -95,16 +95,16 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:beamerfontthemerobsic.sty]
-CursorColumn=19
-CursorLine=7
+CursorColumn=38
+CursorLine=28
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:beamerinnerthemerobsic.sty]
-CursorColumn=73
-CursorLine=8
+CursorColumn=107
+CursorLine=24
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -119,16 +119,16 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:beamerthemerobsic.sty]
-CursorColumn=35
-CursorLine=29
+CursorColumn=26
+CursorLine=20
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:robsic-example.tex]
-CursorColumn=47
-CursorLine=25
+CursorColumn=11
+CursorLine=61
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]

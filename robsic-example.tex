@@ -14,7 +14,7 @@
 %%                                                           %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% The beamer document class
+%% THE BEAMER DOCUMENT CLASS %%
 %
 % By default, we use modern screen size with 16:9 aspect ratio.
 % You can change the option if your presentation media requires it.
@@ -22,68 +22,230 @@
 
 % The RobSIC beamer theme.
 % Available options
-% navigation=false (disables the navigation bar)
 % option=full (full theme, with section titles)
 % option=simple (simplified theme)
-\usetheme[navigation=false, option=full]{robsic}
+\usetheme[option=full]{robsic}
 
-% Packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[portuges]{babel} % Pacote de idioma
-\usepackage{nameref}
+%% PACKAGES %%
+\usepackage[utf8]{inputenc}  % utf8 support
+\usepackage[T1]{fontenc}     % Font encoding
+\usepackage[portuges]{babel} % Language control
+\usepackage{hyperref}        % Hyperlink manager
+\usepackage{nameref}         % Reference to objects
+\usepackage{multicol}       % Break content in columns
 
-% Custom commands
+%% PACKAGE CONFIGS %%
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=accent} % URL colors
+
+%% CUSTOM COMMANDS %%
+
+%% Current section name on frame titles
 \makeatletter
 \newcommand*{\currentname}{\@currentlabelname}
 \makeatother
 
 %% PREAMBLE %%
 
-\title{Modelo de Apresentação do RobSIC}
+\title{Exemplo de Apresentação utilizando o Modelo Oficial do RobSIC}
 \author[Autor]{Nome Completo}
-\institute[RobSIC]{RobSIC - Robótica, Sistemas Inteligentes e Complexos}
-\date[SIGLA 22]{Título da conferência - \today}% Mude a data de acordo com sua conveniência
-
-%% CUSTOM COMMANDS %%
+\institute[RobSIC]{RobSIC - Laboratório de Robótica, Sistemas Inteligentes e Complexos}
+\date[SIGLA 22]{Título da conferência - \today} % Change it to your convenience
 
 %% THE DOCUMENT %%
 
 \begin{document}
 
+% The title frame
 \begin{frame}
   \titlepage
 \end{frame}
 
-\section[Sumário]{Sumário}
+% Using tocdepth to show only sections in the summary.
+% Recommended when you have too many subsections or too
+% many sections.
+% \setcounter{tocdepth}{1}
 
-\mode<beamer>{
+% Comment the following section and frame, if you
+% do not want a Summary frame
+
 \begin{frame}
   \frametitle{\currentname}
-  \tableofcontents
-\end{frame}
-}
+% If your summary is small enough, use the one column approach
 
+%   \tableofcontents
+  
+% Use the below set of commands to automatically split
+% a long summary in two columns. Break on a list of sub-
+% sections may occur.
+
+%   \begin{multicols}{2}
+%     \tableofcontents
+%   \end{multicols}
+
+% Use the below set of commands to manually control the
+% breaking point of long summaries.
+
+  \begin{columns}[onlytextwidth,T]
+    \begin{column}{.45\textwidth}
+      \tableofcontents[sections=1-2]
+    \end{column}
+    \begin{column}{.45\textwidth}
+      \tableofcontents[sections=3-5]
+    \end{column}
+  \end{columns}
+  
+\end{frame}
+
+
+
+% Use sections and subsections to organize your talk
+% Rarely, use subsubsections, but it is not recommended
+% to go beyond subsections in presentations.
 \section[Introdução]{Introdução}
+
 \subsection[Apresentação]{Apresentação}
+
 \begin{frame}
-\frametitle{There Is No Largest Prime Number}
-\framesubtitle{The proof uses \textit{reductio ad absurdum}.}
-\begin{theorem}
-There is no largest prime number.
-\end{theorem}
-\begin{enumerate}
-\item<1-| alert@1> Suppose $p$ were the largest prime number.
-\item<2-> Let $q$ be the product of the first $p$ numbers.
-\item<3-> Then $q+1$ is not divisible by any of them.
-\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
-number not in the first $p$ numbers.
-\end{enumerate}
+ \frametitle{\currentname}
+ \begin{itemize}
+  \item Bem vindo ao Modelo Oficial de Apresentação do RobSIC!
+  \item O modelo é construído sobre a classe Beamer utilizando o sistema de tipografia \LaTeX.
+  \item Este documento serve como \textit{template} para a criação de suas próprias apresentações e também como documentação do modelo.
+  \item O modelo pode ser obtido através de seu \href{https://github.com/Robsic/beamer-template-robsic}{repositório oficial}.
+ \end{itemize}
+
 \end{frame}
 
-\section[Equações]{Inserindo Equações}
+\subsection{Como usar este modelo}
 
-\subsection[Uso Geral]{Uso Geral}
+\begin{frame}
+ \frametitle{\currentname}
+ \begin{itemize}
+  \item Para utilizar este modelo, basta clonar o repositório e reescrever o arquivo \texttt{robsic-example.tex}.
+  \item Se preferir começar um novo arquivo, acrescente o comando \texttt{{\textbackslash}usetheme[<opções>]\{robsic\}}.
+ \end{itemize}
+
+\end{frame}
+
+\subsection{Variações do tema}
+
+\begin{frame}
+ \frametitle{\currentname}
+ \begin{itemize}
+  \item O modelo robsic oferece duas variações de tema que podem ser configuradas no comando \texttt{{\textbackslash}usetheme}:
+  \end{itemize}
+ \begin{description}
+  \item[option] Escolhe uma das duas variações do tema, \alert{simple} ou \alert{full}.
+ \end{description}
+ 
+ \begin{exampleblock}{Exemplo}
+  \begin{itemize}
+   \item \alert{Tema simples:}\linebreak
+         \texttt{{\textbackslash}usetheme[option=simple]\{robsic\}}
+   \item \alert{Tema completo:}\linebreak
+         \texttt{{\textbackslash}usetheme[option=full]\{robsic\}}
+  \end{itemize}
+ \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+ \frametitle{\currentname}
+  \begin{alertblock}{Cuidado!}
+  Não passar uma opção desativará todos os formatos do tema.
+ \end{alertblock}
+\end{frame}
+
+\section{Construindo os quadros}
+
+\subsection{Título e subtítulo do quadro}
+
+\begin{frame}
+  \frametitle{\currentname}
+  \begin{itemize}
+    \item O \alert{título} e o \alert{subtítulo} do quadro podem ser definidos usando-se os comandos
+          \texttt{{\textbackslash}frametitle\{\}} e \texttt{{\textbackslash}framesubtitle\{\}}.
+    \item O conteúdo é exibido na área reservada em ambas as variações do modelo.
+    \item No modelo, está definido o comando \texttt{{\textbackslash}currentname}, que imprime o nome da seção ou subseção corrente.
+    \item É boa prática colocar pelo menos um título em cada quadro. O subtítulo é opcional.
+    \item Quadros com figuras, entretanto, podem dispensar o título. O modelo está preparado para não exibir a área reservada, se nenhum título for definido.
+  \end{itemize}
+\end{frame}
+
+\subsection{Exibindo o conteúdo}
+\begin{frame}
+\frametitle{\currentname}
+% Use itemize or enumerate to show the points of your talk.
+% Use short, but significative sentences. Your talk is the
+% main attraction of the presentation. The frames should be
+% a support to your talk.
+  \begin{itemize}
+    \item Utilize o ambiente \texttt{{\textbackslash}itemize} para exibir seus pontos.
+    \item Use sentenças sucintas, mas que transmitam as ideias claramente.
+    \item Se um item ficar muito grande, não exite em dividi-lo em ítens menores.
+    \item Lembre-se, sua fala é a estrela do show. Os \textit{slides} devem ser um apoio visual a sua fala.
+  \end{itemize}
+  \begin{enumerate}
+   \item Listas numeradas são possíveis com o ambiente \texttt{{\textbackslash}enumerate}.
+   \item Utilize-as em conjunto com \texttt{{\textbackslash}itemize}.
+  \end{enumerate}
+
+\end{frame}
+
+\subsection{Usando camadas (overlays)}
+\begin{frame}
+\frametitle{\currentname}
+
+% Use itemize or enumerate to show the points of your talk.
+% Use short, but significative sentences. Your talk is the
+% main attraction of the presentation. The frames should be
+% a support to your talk.
+\begin{itemize}
+  \item Ovelays são uma maneira fácil de revelar o conteúdo por partes.
+  \item<1-|alert@1> Por exemplo, este item estará destacado. \only<2->{Mas apenas na primeira camada.}
+  \item<2-> Os outros ítens são revelados passo a passo.
+  \item<3-> Repare que o número da página é o mesmo.
+  \item<4-> Todos os ítens pertecem a um único quadro, dividido em camadas (overlays).
+  \item<5-> Mais detalhes podem ser encontrados no \href{https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{manual da classe Beamer}
+\end{itemize}
+\end{frame}
+
+\subsection[Usando blocos]{Usando blocos}
+
+\begin{frame}
+ \frametitle{\currentname}
+ \begin{itemize}
+  \item O ambiente de bloco cria uma caixa decorada com título e conteúdo, para destacar pontos de interesse especial, equações, teoremas, etc.
+  \item Existem três ambientes distintos, com formatação também distinta entre si.
+  \item \texttt{{\textbackslash}begin\{block\}\{título\}...{\textbackslash}end\{block\}} insere um bloco de uso geral.
+  \item \texttt{{\textbackslash}begin\{exampleblock\}\{título\}...{\textbackslash}end\{exampleblock\}} cria um bloco de cor diferente, usado para apresentar exemplos e ponderações.
+  \item \texttt{{\textbackslash}begin\{alertblock\}\{título\}...{\textbackslash}end\{alertblock\}} insere um bloco de alerta, com cor destacada. Use-o para pontos de especial importância.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\currentname}
+  \begin{block}{Bloco normal}
+   Este é um bloco geral, usado para destacar pontos principais.
+  \end{block}
+  \begin{exampleblock}{Bloco de Exemplo}
+    Este é um bloco de exemplo, com cor diferente, para destacar exemplos e ponderações.
+  \end{exampleblock}
+  \begin{alertblock}{Bloco de Alerta}
+    Este é um bloco de alerta, que deve ser usado para destacar pontos de importância elevada.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\currentname}
+  \begin{block}{Overlays e blocos}<1-2|alert@1>
+   Os comandos de overlay também podem ser utilizados em blocos! \only<2->{Neste caso, temos um 
+   destaque na primeira camada e um texto exibido apena na segunda camada.}
+  \end{block}
+
+\end{frame}
+
+\subsection{Inserindo Equações}
 
 \begin{frame}
  \frametitle{Inserindo Equações}
@@ -94,23 +256,17 @@ number not in the first $p$ numbers.
  \end{block}
 \end{frame}
 
-\subsection[Usando blocos]{Usando blocos}
+
+\subsection{Inserindo Figuras}
 
 \begin{frame}
   \frametitle{\currentname}
-  \begin{block}{Bloco normal}
-   Apresente pontos principais da discussão em um bloco.
-  \end{block}
-
-  \begin{exampleblock}{Bloco de Exemplo}
-    Use este bloco para apresentar um exemplo que ilustre um ponto.
-  \end{exampleblock}
-  \begin{alertblock}{Bloco de Alerta}
-   Use o bloco de alerta para chamar a atenção do leitor para um ponto importante.
-  \end{alertblock}
-
-
 \end{frame}
 
+
+\subsection{Inserindo bibliografia}
+\begin{frame}
+  \frametitle{\currentname}
+\end{frame}
 
 \end{document}
