@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=true
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=beamerthemerobsic.sty
+lastDocument=robsic-example.tex
 
 [document-settings,item:beamercolorthemerobsic.sty]
 Bookmarks=
@@ -127,8 +127,8 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:robsic-example.tex]
-CursorColumn=11
-CursorLine=61
+CursorColumn=0
+CursorLine=46
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
