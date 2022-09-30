@@ -67,23 +67,23 @@ open=false
 order=3
 
 [item:beamerfontthemerobsic.sty]
-open=true
+open=false
 order=1
 
 [item:beamerinnerthemerobsic.sty]
-open=true
+open=false
 order=3
 
 [item:beamerouterthemerobsic.sty]
-open=true
+open=false
 order=2
 
 [item:beamerthemerobsic.sty]
-open=true
+open=false
 order=4
 
 [item:robsic-example.tex]
-open=true
+open=false
 order=0
 
 [view-settings,view=0,item:beamercolorthemerobsic.sty]
