@@ -87,8 +87,8 @@ open=false
 order=0
 
 [view-settings,view=0,item:beamercolorthemerobsic.sty]
-CursorColumn=49
-CursorLine=24
+CursorColumn=33
+CursorLine=7
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -128,7 +128,7 @@ ViMarks=
 
 [view-settings,view=0,item:robsic-example.tex]
 CursorColumn=0
-CursorLine=46
+CursorLine=21
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
