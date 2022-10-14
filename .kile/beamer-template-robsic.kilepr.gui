@@ -83,7 +83,7 @@ open=false
 order=4
 
 [item:robsic-example.tex]
-open=false
+open=true
 order=0
 
 [view-settings,view=0,item:beamercolorthemerobsic.sty]
@@ -131,5 +131,5 @@ CursorColumn=0
 CursorLine=21
 Dynamic Word Wrap=false
 JumpList=
-TextFolding=[]
+TextFolding={"checksum":"10f2ad655445b5714ddc752b8cf6c0cfc5432b09","ranges":[]}
 ViMarks=
